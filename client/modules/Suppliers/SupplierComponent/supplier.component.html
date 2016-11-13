@@ -1,0 +1,98 @@
+
+<div class="row">
+          <div class="col-md-offset-1 col-md-6">
+            <div class="page-header">
+              <h1 id="dialogs">Supplier Details</h1>
+            </div>
+          </div>
+</div>
+<div class="bs-docs-section">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10">
+            <div class="bs-component">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab">Profile</a></li>
+                <li><a href="#profile" data-toggle="tab">Transactions</a></li>
+              </ul>
+              <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active in" id="home">
+                  <table *ngIf = "supplier" class="table table-striped table-hover table-bordered table-responsive">
+                  <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{supplier.supplierName}}</td>
+                      </tr>
+                      <tr>
+                        <th>Address</th>
+                        <td>{{supplier.address}}</td>
+                      </tr>
+                      <tr>
+                        <th>Location</th>
+                        <td>{{supplier.location}}</td>
+                      </tr>
+                      <tr>
+                        <th>Mobile Number</th>
+                        <td>{{supplier.mobileNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Bank Details:</th>
+                        <td>{{supplier.bank_details}}</td>
+                      </tr>
+                      
+                      <tr>
+                        <th>Supplier Status:</th>
+                        <td *ngIf = "supplier.supplierActive">Yes</td>
+                        <td *ngIf = "!supplier.supplierActive">No</td>
+                      </tr>
+          
+                  </tbody>
+                  </table>
+                </div>
+                <div class="tab-pane fade" id="profile">
+                  <table *ngIf = "lenght" class="table table-striped table-hover table-bordered table-responsive">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Transaction ID</th>
+                        <th>Supplier Name</th>
+                        <th>Item Name</th>
+                        <th>Item SKU</th>
+                        <th>Qty Ordered</th>
+                        <th>Qty Left</th>
+                        <th>Cost Cost</th>
+                        <th>Selling Price</th>
+                        <th>Min Selling Price</th>
+                        <th>Date</th>
+                        <th>Employee Rcvd</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let inventory of inventorys; let serialNumber =index">
+                        <td>{{serialNumber+1}}</td>
+                        <td>{{inventory._id}}</td>
+                        <td>{{supplier.supplierName}}</td>
+                        <td>{{inventory.product_id.name}}</td>
+                        <td>{{inventory.product_sku}}</td>
+                        <td>{{inventory.quantityOrdered}}</td>
+                        <td>{{inventory.quantityLeft}}</td>
+                        <td>{{inventory.purchaseCost}}</td>
+                        <td>{{inventory.sellingPrice}}</td>
+                        <td>{{inventory.minSellingPrice}}</td>
+                        <td>{{inventory.date|date}}</td>
+                        <td>{{inventory.employeeid}}</td>  
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p *ngIf = "!lenght">No Transactions yet with this supplier</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+
+
+
+
+

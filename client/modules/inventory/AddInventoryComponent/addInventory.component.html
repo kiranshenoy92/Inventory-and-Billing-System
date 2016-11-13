@@ -1,0 +1,104 @@
+
+<div class="row">
+          <div class="col-md-offset-3">
+            <div class="page-header">
+              <h1 id="dialogs">Add Item</h1>
+            </div>
+          </div>
+        </div>
+<div>
+<div class="row">
+          <div class="col-md-offset-3 col-md-6">
+            <div class="well bs-component">
+              <form class="form-horizontal" (ngSubmit)="onSubmit()" [formGroup] = "inventoryForm">
+                <fieldset>
+                  <legend>Item Details</legend>
+                  <div class="form-group">
+                    <label for="supplierid" class="col-md-2 control-label">Item</label>
+                   
+                        <div class="col-md-10">
+                            <select class="form-control" id="select" (change)="onChange($event.target.value)" [formControl]="item_id" >
+                                <option *ngFor="let item of products" value="{{item._id}}">{{item.name}}</option>
+                            </select>
+                            <div [hidden]="item_id.valid || item_id.pristine" class="alert alert-danger">
+                            Item Name is required
+                            </div>
+                        </div>
+                   
+                  </div>
+
+                   <div class="form-group">
+                    <label for="item_sku" class="col-md-2 control-label">SKU</label>
+                    <div class="col-md-10">
+                      <input type="number" min="1" class="form-control" id="item_sku" placeholder="item sku" [formControl] = "item_sku">
+                      <div [hidden]="item_sku.valid || item_sku.pristine" class="alert alert-danger">
+                        Item SKU is required!!
+                      </div>
+                    </div>
+                    </div>
+
+                  <div class="form-group">
+                    <label for="supplierid" class="col-md-2 control-label">Supplier</label>
+                    <div class="col-md-10">
+                       
+                            <select class="form-control" id="select" [formControl]="supplierid" >
+                                <option *ngFor="let supplier of suppliers" value="{{supplier._id}}">{{supplier.supplierName}}</option>
+                            </select>
+                            <div [hidden]="supplierid.valid || supplierid.pristine" class="alert alert-danger">
+                            Supplier Name is required
+                            </div>
+                       
+                    </div>
+                  </div>
+                   
+                    <div class="form-group">
+                    <label for="quantity" class="col-md-2 control-label">Quantity</label>
+                    <div class="col-md-10">
+                      <input type="number" min="1" class="form-control" id="quantity" placeholder="quantity" [formControl] = "quantity">
+                      <div [hidden]="quantity.valid || quantity.pristine" class="alert alert-danger">
+                        Quantity is required!!
+                      </div>
+                    </div>
+                    </div>
+
+                  <div class="form-group">
+                    <label for="costPrice" class="col-md-2 control-label">Cost Price</label>
+                    <div class="col-md-10">
+                      <input type="number" class="form-control" id="costPrice" placeholder="Cost Price" [formControl] = "costPrice">
+                      <div [hidden]="costPrice.valid || costPrice.pristine" class="alert alert-danger">
+                        Cost Price is required!!
+                      </div>
+                    </div>
+                    </div>
+                      <div class="form-group">
+                    <label for="sellingPrice" class="col-md-2 control-label">Selling Price</label>
+                    <div class="col-md-10">
+                      <input type="number" class="form-control" id="sellingPrice" placeholder="sellingPrice" [formControl] = "sellingPrice">
+                      <div [hidden]="sellingPrice.valid || sellingPrice.pristine" class="alert alert-danger">
+                        Selling Price is required!!
+                      </div>
+                    </div>
+                    </div>
+                      <div class="form-group">
+                    <label for="minSellingPrice" class="col-md-2 control-label">Min Selling Price</label>
+                    <div class="col-md-10">
+                      <input type="number" class="form-control" id="minSellingPrice" placeholder="quantity" [formControl] = "minSellingPrice">
+                      <div [hidden]="minSellingPrice.valid || minSellingPrice.pristine" class="alert alert-danger">
+                        minSellingPrice is required!!
+                      </div>
+                    </div>
+                    </div>
+                 
+                    
+                  
+                 
+                  
+                  <div>
+                  <input type="submit" value="Add Supplier" class="btn btn-primary pull-right" [disabled]="!inventoryForm.valid"/>
+                  </div>
+               
+                </fieldset>
+              </form>
+            </div>
+          </div>
+

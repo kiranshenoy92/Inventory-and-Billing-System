@@ -1,0 +1,76 @@
+
+<div class="row">
+          <div class="col-md-offset-3">
+            <div class="page-header">
+              <h1 id="dialogs">Add Supplier</h1>
+            </div>
+          </div>
+        </div>
+<div>
+<div class="row">
+          <div class="col-md-offset-3 col-md-6">
+            <div class="well bs-component">
+              <form class="form-horizontal" (ngSubmit)="onSubmit()" [formGroup] = "SupplierForm">
+                <fieldset>
+                  <legend>Supplier Details</legend>
+                  <div class="form-group">
+                    <label for="supplierName" class="col-md-2 control-label">Supplier Name</label>
+                    <div class="col-md-10">
+                      <input type="text" class="form-control" id="inputSuplierName" placeholder="Name" [formControl]="supplierName">
+                      <div [hidden]="supplierName.valid || supplierName.pristine" class="alert alert-danger">
+                      Supplier Name is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="Location" class="col-md-2 control-label">Location</label>
+                    <div class="col-md-10">
+                      <input type="text" class="form-control" id="Location" placeholder="Location" [formControl] = "location">
+                      <div [hidden]="location.valid || location.pristine" class="alert alert-danger">
+                        Location is required!!
+                      </div>
+                    </div>
+                  </div>
+                   <div class="form-group">
+                    <label for="textArea" class="col-md-2 control-label">Address</label>
+                    <div class="col-md-10">
+                      <textarea class="form-control" rows="3" id="textArea" [formControl] = "address"></textarea>
+                      <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                      <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+                      Address is required!!
+                    </div>                    
+                    </div>
+                   </div>
+                    <div class="form-group">
+                    <label for="inputEmail" class="col-md-2 control-label">Mobile Number</label>
+                    <div class="col-md-10">
+                      <input type="text" class="form-control" id="Mnumber" placeholder="Mobile Number" [formControl] = "mobileNumber">
+                      <div [hidden]="mobileNumber.valid || mobileNumber.pristine" class="alert alert-danger">
+                        Please enter a valid mobile number!!
+                      </div>
+                    </div>
+                    </div>
+
+                   <div class="form-group">
+                    <label for="bank" class="col-md-2 control-label">Bank Details</label>
+                    <div class="col-md-10">
+                      <input type="text" class="form-control" id="bank" placeholder="Bank Details" [formControl] = "bank_details">
+                      <div [hidden]="bank_details.valid || bank_details.pristine" class="alert alert-danger">
+                        BankDetails is required!!
+                      </div>
+                    </div>
+                  </div>
+                 
+                    
+                  
+                 
+                  
+                  <div>
+                  <input type="submit" value="Add Supplier" class="btn btn-primary pull-right" [disabled]="!SupplierForm.valid"/>
+                  </div>
+               
+                </fieldset>
+              </form>
+            </div>
+          </div>
+

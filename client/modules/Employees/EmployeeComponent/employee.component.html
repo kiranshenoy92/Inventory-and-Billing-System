@@ -1,0 +1,62 @@
+
+       <div *ngIf="employee" class="row">
+          <div class="col-md-offset-2 col-md-4">
+            <div class="page-header">
+              <h1 id="tables">Employees Profile</h1>
+            </div>
+          </div>
+          <br>
+          <div>
+            <div class="col-md-offset-2 col-md-6">
+            <table class="table table-striped table-hover table-bordered">
+           
+            <tbody>
+                <tr>
+                  <th>Username</th>
+                  <td>{{employee.name}}</td>
+                </tr>
+                <tr>
+                  <th>First Name</th>
+                  <td>{{employee.firstName}}</td>
+                </tr>
+                <tr>
+                  <th>Second Name</th>
+                  <td>{{employee.secondName}}</td>
+                </tr>
+                <tr>
+                  <th>Address</th>
+                  <td>{{employee.address}}</td>
+                </tr>
+                <tr>
+                  <th>Mobile Number:</th>
+                  <td>{{employee.mobileNumber}}</td>
+                </tr>
+                <tr>
+                  <th>Date of Birth:</th>
+                  <td>{{employee.dob|date}}</td>
+                </tr>
+                <tr>
+                  <th>Joining Date::</th>
+                  <td>{{employee.joiningDate|date}}</td>
+                </tr>
+                <tr>
+                  <th>Admin Rights:</th>
+                  <td *ngIf = "employee.adminAccess">Yes</td>
+                  <td *ngIf = "!employee.adminAccess">No</td>
+                </tr>
+                <tr>
+                  <th>User Active</th>
+                  <td *ngIf = "employee.adminAccess">Yes</td>
+                  <td *ngIf = "!employee.adminAccess">No</td>
+                </tr>
+                
+            </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+
+
+
+
+

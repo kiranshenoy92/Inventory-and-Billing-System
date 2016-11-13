@@ -1,0 +1,67 @@
+
+<nav class="navbar navbar-inverse">
+  
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">ngPlay</a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav ">
+            <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+            <li class="dropdown" *ngIf="this.userservice.isLoggedIn()">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Billing <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a routerLink="billing/showBill" routerLinkActive="active">Show Bill</a></li>
+                <li><a routerLink="billing/createBill" routerLinkActive="active">Create Bill</a></li>
+              </ul>
+            </li>
+            
+            <li class="dropdown" *ngIf="this.userservice.isAdminIn()">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventory <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a routerLink="inventory/addInventory" routerLinkActive="active">Add Item</a></li>
+                <li><a routerLink="inventory/ShowInventory" routerLinkActive="active">Stock List</a></li>
+                <li><a routerLink="inventory/addProduct" routerLinkActive="active">Add Product</a></li>
+                <li><a routerLink="product/showProducts" routerLinkActive="active">Show Product</a></li>
+                <li><a href="#">Delete Item</a></li>
+              </ul>
+            </li>
+            <li class="dropdown" *ngIf="this.userservice.isAdminIn()">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Supplier <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a routerLink="/supplier/addSupplier" routerLinkActive="active">Add Supplier</a></li>
+                <li><a routerLink="/supplier/showSupplier" routerLinkActive="active">Supplier List</a></li>
+                <li><a href="#">Delete Supplier</a></li>
+              </ul>
+            </li>
+            <li class="dropdown" *ngIf="this.userservice.isAdminIn()">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a routerLink="/employee/addEmployee" routerLinkActive="active">Add Employee</a></li>
+                <li><a routerLink="/employee/showEmployee" routerLinkActive="active">Employee List</a></li>
+                <li><a href="#">Delete Employee</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+            <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li *ngIf="!this.userservice.isLoggedIn()"><a routerLink="auth/login" routerLinkActive="active">Login</a></li>
+            <li *ngIf="this.userservice.isLoggedIn()">Logged in as {{this.userservice.getName()}}</li>
+            <li *ngIf="this.userservice.isLoggedIn()"><a (click)="logout()" routerLink="auth/login" routerLinkActive="active">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>

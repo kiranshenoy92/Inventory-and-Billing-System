@@ -1,0 +1,143 @@
+
+<div class="row">
+          <div class="col-md-offset-3">
+            <div class="page-header">
+              <h1 id="dialogs">Add Employee</h1>
+            </div>
+          </div>
+        </div>
+<div>
+<div class="row">
+          <div class="col-md-offset-3 col-md-6">
+            <div class="well bs-component">
+              <form class="form-horizontal" (ngSubmit)="onSubmit()" [formGroup] = "EmployeeForm">
+                <fieldset>
+                  <legend>Employee Details</legend>
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-md-2 control-label">Username</label>
+                    <div class="col-md-10">
+                      <input type="text" class="form-control" id="inputEmail" placeholder="Email" [formControl]="username">
+                      <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+                      Username is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword" class="col-md-2 control-label">Password</label>
+                    <div class="col-md-10">
+                      <input type="password" class="form-control" id="inputPassword" placeholder="Password" [formControl] = "password">
+                      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                        Password is required
+                      </div>
+                    </div>
+                  </div>
+                   <div class="form-group">
+                    <label for="Fname" class="col-md-2 control-label">First Name</label>
+                    <div class="col-md-10">
+                      <input type="text" class="form-control" id="firstname" placeholder="First name" [formControl] = "firstName">
+                      <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+                        First Name is required!!
+                      </div>
+                    </div>
+                  </div>
+                   <div class="form-group">
+                    <label for="Sname" class="col-md-2 control-label">Second Name</label>
+                    <div class="col-md-10">
+                      <input type="text" class="form-control" id="secondname" placeholder="Second name" [formControl] = "secondName">
+                      <div [hidden]="secondName.valid || secondName.pristine" class="alert alert-danger">
+                        Second Name is required!!
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="textArea" class="col-md-2 control-label">Address</label>
+                    <div class="col-md-10">
+                      <textarea class="form-control" rows="3" id="textArea" [formControl] = "address"></textarea>
+                      <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                      <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+                      Address is required!!
+                    </div>                    
+                    </div>
+                    
+                  </div>
+                   <div class="form-group">
+                    <label for="inputEmail" class="col-md-2 control-label">Mobile Number</label>
+                    <div class="col-md-10">
+                      <input type="text" class="form-control" id="Mnumber" placeholder="Mobile Number" [formControl] = "mobileNumber">
+                      <div [hidden]="mobileNumber.valid || mobileNumber.pristine" class="alert alert-danger">
+                        Please enter a valid mobile number!!
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="date" class="col-md-2 control-label">Joining date</label>
+                    <div class="col-md-2 input-group date" data-provide="datepicker">
+                       <input type="date" class="form-control" [formControl] = "joiningDate">
+                       <div class="input-group-addon">
+                         <span class="glyphicon glyphicon-th"></span>
+                       </div>
+                    </div>
+                  </div>
+                    <div class="form-group">
+                    <label for="date" class="col-md-2 control-label">Date of Birth</label>
+                    <div class="col-md-2 input-group date" data-provide="datepicker">
+                       <input type="date" class="form-control" [formControl] = "dob">
+                       <div class="input-group-addon">
+                         <span class="glyphicon glyphicon-th"></span>
+                       </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">Admin Rights</label>
+                    <div class="col-md-10">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="true" [formControl] = "adminRights">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="false"  [formControl] = "adminRights">
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                  <input type="submit" value="Add Employee" class="btn btn-primary pull-right" [disabled]="!EmployeeForm.valid"/>
+                  </div>
+                 <!-- <div class="form-group">
+                    <label for="select" class="col-md-2 control-label">Selects</label>
+                    <div class="col-md-10">
+                      <select class="form-control" id="select">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                      <br>
+                      <select multiple="" class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                      <button type="reset" class="btn btn-default">Cancel</button>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>-->
+                </fieldset>
+              </form>
+            </div>
+          </div>
+</div>
+</div>
+
+

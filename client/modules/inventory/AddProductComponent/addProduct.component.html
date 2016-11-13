@@ -1,0 +1,58 @@
+
+<div class="row">
+          <div class="col-md-offset-3">
+            <div class="page-header">
+              <h1 id="dialogs">Add Product</h1>
+            </div>
+          </div>
+        </div>
+<div>
+<div class="row">
+          <div class="col-md-offset-3 col-md-6">
+            <div class="well bs-component">
+              <form class="form-horizontal" (ngSubmit)="onSubmit()" [formGroup] = "ProductForm">
+                <fieldset>
+                  <legend>Item Details</legend>
+                  <div class="form-group">
+                    <label for="itemName" class="col-md-2 control-label">Product Name</label>
+                    <div class="col-md-10">
+                      <input type="text" class="form-control" id="itemName" placeholder="Name" [formControl]="itemName">
+                      <div [hidden]="itemName.valid || itemName.pristine" class="alert alert-danger">
+                      Product Name is required
+                      </div>
+                    </div>
+                  </div>
+                  
+                   <div class="form-group">
+                    <label for="Description" class="col-md-2 control-label">Description</label>
+                    <div class="col-md-10">
+                      <textarea class="form-control" rows="3" id="Description" [formControl] = "itemDesc"></textarea>
+                      <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                      <div [hidden]="itemDesc.valid || itemDesc.pristine" class="alert alert-danger">
+                      Description is required!!
+                    </div>                    
+                    </div>
+                   </div>
+                    <div class="form-group">
+                    <label for="sku" class="col-md-2 control-label">SKU</label>
+                    <div class="col-md-10">
+                      <input type="number" min="1" class="form-control" id="sku" placeholder="SKU" [formControl] = "sku">
+                      <div [hidden]="sku.valid || sku.pristine" class="alert alert-danger">
+                        SKU is required!!
+                      </div>
+                    </div>
+                    </div>
+
+                    
+                  
+                 
+                  
+                  <div>
+                  <input type="submit" value="Add Supplier" class="btn btn-primary pull-right" [disabled]="!ProductForm.valid"/>
+                  </div>
+               
+                </fieldset>
+              </form>
+            </div>
+          </div>
+

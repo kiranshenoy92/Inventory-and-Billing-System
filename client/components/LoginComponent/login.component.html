@@ -1,0 +1,9 @@
+
+<div class="col-md-offset-4 col-md-4">
+<form class="form-auth" (ngSubmit)="onSubmit()" [formGroup] = "LoginForm">
+            <h2>Login</h2>
+            <input type="username" name="username"  placeholder="Username" class="form-control" [formControl]="username"><br>
+            <input type="password" name="password" placeholder="Password" class="form-control" [formControl]="password"><br>
+            <input type="submit" value="Login" class="btn btn-primary" />
+</form>
+</div>
