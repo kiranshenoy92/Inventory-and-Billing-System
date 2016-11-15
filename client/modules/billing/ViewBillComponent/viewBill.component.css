@@ -1,0 +1,14 @@
+pagination-controls.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+pagination-controls.pagination li {display: inline;}
+
+pagination-controls.pagination li a {
+    color: green;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}

@@ -3,7 +3,7 @@ import { HttpModule } from "@angular/http";
 import { FormsModule}           from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { Ng2PaginationModule} from 'ng2-pagination';
 import { CreateBillComponent } from "./CreateBillComponent/createBill.component";
 import { ViewBillComponent } from "./ViewBillComponent/viewBill.component";
 import { BillDetailsComponent } from "./BillDetailsComponent/billDetail.component";
@@ -16,6 +16,7 @@ import { routing } from "./bill.routing";
         FormsModule,
         ReactiveFormsModule,
         routing,
+        Ng2PaginationModule,
         CommonModule
         
     ],

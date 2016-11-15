@@ -849,7 +849,7 @@ protectedRouter.post('/createReceipt', passport.authenticate('jwt', { session: f
 
 
 
-protectedRouter.get('/getReceipt', passport.authenticate('jwt', { session: false}), function(req, res) {
+protectedRouter.get('/getReceipt/:pageNum', passport.authenticate('jwt', { session: false}), function(req, res) {
   var token = getToken(req.headers);
   if (token) {
     var decoded = jwt.decode(token, config.secret);
@@ -871,7 +871,13 @@ protectedRouter.get('/getReceipt', passport.authenticate('jwt', { session: false
              if(err){
               return res.send(500,err);
               } else {
-                return res.json(receipt);
+                const count   = receipt.length
+                const perPage = 10;
+                const start   = (req.params.pageNum - 1) * perPage;
+                const end     = start + perPage;
+                receipt       = receipt.slice(start, end);
+                console.log("get receipt called" +receipt);
+                return res.json({"item" : receipt , "total" : count});
              }
            })
          

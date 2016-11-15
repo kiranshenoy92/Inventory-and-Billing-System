@@ -28,7 +28,9 @@ var isPublic = typeof window != "undefined";
             'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
             'angular2-jwt'              : 'npm:angular2-jwt/angular2-jwt.js',
             'ng-semantic'               : 'npm:ng-semantic',
-            'socket.io-client'          : 'npm:socket.io-client'
+            'socket.io-client'          : 'npm:socket.io-client',
+            'ng2-pagination'            : 'npm:ng2-pagination/dist'
+
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -47,8 +49,8 @@ var isPublic = typeof window != "undefined";
                 main: 'ng-semantic',
                 defaultExtension: 'js'
             },
-            'socket.io-client': {
-                main: './socket.io.js',
+            'ng2-pagination': {
+                main: 'ng2-pagination',
                 defaultExtension: 'js'
             }
         }

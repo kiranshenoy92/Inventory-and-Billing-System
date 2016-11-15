@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import {ResponseContentType} from '@angular/http';
 import 'rxjs/add/operator/mergeMap';
+import { Bill } from '../modules/billing/bill';
 
 @Injectable()
 export class UserService {
@@ -266,7 +267,7 @@ export class UserService {
   }
 
 
-  getPDF(receiptNumber) {
+  getPDF(receiptNumber : number) {
       let headers = new Headers();
       headers.append('Content-Type','application/json');
       headers.append('Authorization',localStorage.getItem('auth_token'));
@@ -278,15 +279,15 @@ export class UserService {
   }
 
 
-  getReceipts(){
+  getReceipts(page : number){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
     headers.append('Authorization',localStorage.getItem('auth_token'));
-    return this.http.get('/api/getReceipt', { headers})
-                    .map(res => res.json());
+    return this.http.get('/api/getReceipt/'+page, { headers})
+                    .map(res => (res.json()));
   }
 
-  receiptDetails(receiptID){
+  receiptDetails(receiptID : number){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
     headers.append('Authorization',localStorage.getItem('auth_token'))
@@ -296,4 +297,5 @@ export class UserService {
                 .map( res => res.json());
   }
 
+  
 }
