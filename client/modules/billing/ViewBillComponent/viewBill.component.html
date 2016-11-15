@@ -35,7 +35,9 @@
                   <td>{{receipt.date|date}}</td>
                   <td>{{receipt.finalPrice}}</td>
                   <td>{{receipt.finalPrice}}</td>
-                  <td><billDetail-component [receipt]="receipt" [id]='receipt._id'></billDetail-component></td>
+                  <td>
+                    <billDetail-component [receipt]="receipt" [id]='receipt._id'></billDetail-component>
+                  </td>
                 </tr>
             </tbody>
             </table>          
