@@ -30,28 +30,21 @@
             </thead>
             <tbody>
                <tr *ngFor="let receipt of asyncreceipts | async | paginate: { id: 'serve', itemsPerPage: 10, currentPage: page, totalItems: total }; let serialNumber =index">
-                <td>{{serialNumber+1}}</td>
-                <td>{{receipt.customerName}}</td>
-                <td>{{receipt.date|date}}</td>
-                <td>{{receipt.finalPrice}}</td>
-                <td>{{receipt.finalPrice}}</td>
-                <td><billDetail-component [receipt]="receipt" [id]='receipt._id'></billDetail-component></td>
-             
-                
+                  <td>{{serialNumber+1}}</td>
+                  <td>{{receipt.customerName}}</td>
+                  <td>{{receipt.date|date}}</td>
+                  <td>{{receipt.finalPrice}}</td>
+                  <td>{{receipt.finalPrice}}</td>
+                  <td><billDetail-component [receipt]="receipt" [id]='receipt._id'></billDetail-component></td>
                 </tr>
             </tbody>
-            </table>
-            
-            
+            </table>          
             </div>
             <div class="col-md-offset-8 has-text-centered">
               <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
               <pagination-controls (pageChange)="getPage($event)" id="serve"></pagination-controls>
             </div>
-               
-            
           </div>
-          
         </div>
  </div> 
   
