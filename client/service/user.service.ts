@@ -13,7 +13,7 @@ export class UserService {
 
   constructor(private http: Http) {
     this.loggedIn = !!localStorage.getItem('auth_token');
-     this.Admin = !!localStorage.getItem('Admin');
+    this.Admin = !!localStorage.getItem('Admin');
   }
 
   
@@ -34,7 +34,9 @@ export class UserService {
         if (res.user.adminAccess) {
           localStorage.setItem('auth_token', res.token);
           localStorage.setItem('Admin',"true");
+          localStorage.setItem('Username',res.user.name);
           this.username = res.user.name;
+          
           this.Admin = true;
           return res.success;
         }
@@ -103,8 +105,8 @@ export class UserService {
     return this.Admin;
   }
   getName() {
-    console.log(this.username);
-    return  this.username;
+    //console.log(this.username);
+    return   localStorage.getItem('Username');
   }
 
 

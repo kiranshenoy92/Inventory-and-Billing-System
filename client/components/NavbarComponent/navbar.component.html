@@ -59,7 +59,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li *ngIf="!this.userservice.isLoggedIn()"><a routerLink="auth/login" routerLinkActive="active">Login</a></li>
-            <li *ngIf="this.userservice.isLoggedIn()">Logged in as {{this.userservice.getName()}}</li>
+            <li *ngIf="this.userservice.isLoggedIn()"><a>Logged in as {{this.userservice.getName()}}</a></li>
             <li *ngIf="this.userservice.isLoggedIn()"><a (click)="logout()" routerLink="auth/login" routerLinkActive="active">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->

@@ -31,7 +31,7 @@ loginRouter.post('/login', function(req, res) {
           var token = jwt.encode(user, config.secret);
           // return the information including token as JSON
         
-           res.json({success: true, user ,token: 'JWT ' + token});
+           res.json({success: true,  user ,token: 'JWT ' + token});
         
         } else {
           res.send({success: false, msg: 'Authentication failed. Wrong password.'});

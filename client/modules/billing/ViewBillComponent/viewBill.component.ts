@@ -23,7 +23,7 @@ export class ViewBillComponent implements OnInit{
     loading: boolean;
 
     constructor(private userservice : UserService) {
-         
+         console.log("logged in as"+this.userservice.getName());
     }
     ngOnInit() {
         
