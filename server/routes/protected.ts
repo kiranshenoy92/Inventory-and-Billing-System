@@ -849,7 +849,7 @@ protectedRouter.post('/createReceipt', passport.authenticate('jwt', { session: f
 
 
 
-protectedRouter.get('/getReceipt/:pageNum', passport.authenticate('jwt', { session: false}), function(req, res) {
+protectedRouter.get('/getReceipt', passport.authenticate('jwt', { session: false}), function(req, res) {
   var token = getToken(req.headers);
   if (token) {
     var decoded = jwt.decode(token, config.secret);
@@ -865,7 +865,11 @@ protectedRouter.get('/getReceipt/:pageNum', passport.authenticate('jwt', { sessi
 
         } else {
             // user has logged in so return all the employees added
-
+            var pageNum = 1;
+            if(req.query.pageNumber) {
+              console.log("page length is "+req.query.pageNumber);
+              pageNum = req.query.pageNumber;
+            }
            
            Receipt.find(function(err,receipt){
              if(err){
@@ -873,10 +877,10 @@ protectedRouter.get('/getReceipt/:pageNum', passport.authenticate('jwt', { sessi
               } else {
                 const count   = receipt.length
                 const perPage = 10;
-                const start   = (req.params.pageNum - 1) * perPage;
+                const start   = (pageNum - 1) * perPage;
                 const end     = start + perPage;
                 receipt       = receipt.slice(start, end);
-                console.log("get receipt called" +receipt);
+                //console.log("get receipt called" +receipt);
                 return res.json({"item" : receipt , "total" : count});
              }
            })

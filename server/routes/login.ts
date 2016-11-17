@@ -1,5 +1,5 @@
 import { Router, Request, Response, NextFunction } from "express";
-var bCrypto = require('bcrypt-nodejs');
+var bCrypto     = require('bcrypt-nodejs');
 var jwt         = require('jwt-simple');
 
 var config      = require('../config/database'); // get db config file

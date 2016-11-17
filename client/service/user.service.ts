@@ -285,7 +285,7 @@ export class UserService {
     let headers = new Headers();
     headers.append('Content-Type','application/json');
     headers.append('Authorization',localStorage.getItem('auth_token'));
-    return this.http.get('/api/getReceipt/'+page, { headers})
+    return this.http.get('/api/getReceipt?pageNumber='+page, { headers})
                     .map(res => (res.json()));
   }
 
